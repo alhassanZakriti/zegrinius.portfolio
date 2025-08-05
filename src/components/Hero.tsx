@@ -27,7 +27,7 @@ export default function Hero() {
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 ">
             {/* Available Badge */}
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 px-2 py-1 rounded-md mb-[1em] text-xs font-medium border border-cyan-500/30">
               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
@@ -58,7 +58,7 @@ export default function Hero() {
           {/* Right Content - Cards */}
           <div className="relative">
             {/* Profile Card */}
-            <div className="relative z-10 bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-6 shadow-2xl max-w-sm mx-auto lg:mx-0">
+            <div className="relative z-10 bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-6 shadow-2xl max-w-md mx-auto lg:mx-0">
               <div className="aspect-square rounded-2xl overflow-hidden mb-4 bg-gradient-to-br from-slate-700 to-slate-800">
                 <div className="w-full h-full flex items-center justify-center text-slate-400">
                   <div className="text-6xl">
