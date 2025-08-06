@@ -37,7 +37,7 @@ export default function Hero() {
             {/* Main Heading */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold text-white leading-tight">
-                Designing Thought, <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Coding Motion,</span> Writing Experience.
+                Designing Thought, <span className="bg-[#004fff] bg-clip-text text-transparent">Coding Motion,</span> Writing Experience.
               </h1>
             </div>
 

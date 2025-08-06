@@ -11,8 +11,8 @@ const Blog = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              My Latest Thoughts
+            <h2 className="text-4xl md:text-5xl font-bold bg-white bg-clip-text text-transparent">
+              My Thoughts
             </h2>
           </div>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
@@ -95,9 +95,8 @@ const Blog = () => {
         <div className="text-center">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-xl hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#004fff] text-white font-semibold rounded-xl hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
           >
-            <BookOpen className="w-5 h-5" />
             View All Articles
             <ArrowRight className="w-5 h-5" />
           </Link>

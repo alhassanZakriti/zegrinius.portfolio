@@ -50,9 +50,10 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="">
-            <Logo />
-          </div>
+          <Link to="/" className="flex items-center  gap-4 ">
+              <Logo />
+              <span className="text-2xl font-bold text-[#FFF] bg-clip-text flex gap-[2px]">Trasart</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

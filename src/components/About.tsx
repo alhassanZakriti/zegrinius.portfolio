@@ -3,10 +3,10 @@ import pic from "../assets/pic2.jpg"
 
 export default function About() {
   const stats = [
-    { icon: Award, label: "Projects Completed", value: "50+", color: "text-cyan-400" },
-    { icon: Coffee, label: "Years Experience", value: "3+", color: "text-blue-400" },
-    { icon: Heart, label: "Client Satisfaction", value: "100%", color: "text-cyan-500" },
-    { icon: User, label: "Support Available", value: "24/7", color: "text-blue-500" },
+    { icon: Award, label: "Projects Completed", value: "50+", color: "text-[#004fff]" },
+    { icon: Coffee, label: "Years Experience", value: "5+", color: "text-[#004fff]" },
+    { icon: Heart, label: "Client Satisfaction", value: "100%", color: "text-[#004fff]" },
+    { icon: User, label: "Support Available", value: "24/7", color: "text-[#004fff]" },
   ]
 
   return (
@@ -22,7 +22,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="fade-in">
             <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-2xl object-cover overflow-hidden h-96 flex items-center justify-center">
-                <img src={pic} alt="Profile" className="object-cover translate-y-[0%]" />
+                <img src={pic} alt="Profile" className="object-cover translate-y-[10%]" />
             </div>
           </div>
 
