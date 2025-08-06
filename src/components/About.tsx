@@ -22,7 +22,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="fade-in">
             <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-2xl object-cover overflow-hidden h-96 flex items-center justify-center">
-                <img src={pic} alt="Profile" className="object-cover translate-y-[-10%]" />
+                <img src={pic} alt="Profile" className="object-cover translate-y-[0%]" />
             </div>
           </div>
 

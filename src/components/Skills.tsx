@@ -18,10 +18,10 @@ export default function Skills() {
   },
   {
     icon: CodeIcon,
-    title: "Front-End Development",
-    description: "Building responsive, interactive user interfaces with modern frameworks and clean, maintainable code.",
+    title: "Development & Programming",
+    description: "Proficient in a diverse array of programming languages and technologies, including TypeScript, Python, Java, C, Matlab, R, HTML, CSS, and JavaScript. Experienced in developing solutions across various domains, from web development to scientific computing, leveraging a strong foundation in software engineering principles.",
     color: "bg-violet-500/20 text-violet-400 border-violet-500/30",
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    technologies: ["TypeScript", "Python", "Java", "C", "Matlab", "R", "HTML", "CSS", "JavaScript"],
   },
   {
     icon: FilmIcon,

@@ -1,15 +1,21 @@
 "use client"
 
 import { useEffect } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Header from "./components/Header"
 import Hero from "./components/Hero"
 import About from "./components/About"
 import Skills from "./components/Skills"
 import Projects from "./components/Projects"
+import Blog from "./components/Blog"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
+import ProjectDetail from "./pages/ProjectDetail"
+import BlogPage from "./pages/BlogPage"
+import BlogPost from "./pages/BlogPost"
 
-function App() {
+// Main Portfolio Page Component
+function Portfolio() {
   useEffect(() => {
     // Enhanced Intersection Observer for staggered animations
     const observerOptions = {
@@ -45,9 +51,23 @@ function App() {
     <About />
       <Skills />
       <Projects />
+      <Blog />
       <Contact />
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/project/:slug" element={<ProjectDetail />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
+    </Router>
   )
 }
 

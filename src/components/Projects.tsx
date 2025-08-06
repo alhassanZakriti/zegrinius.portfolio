@@ -1,4 +1,5 @@
 import { ExternalLink, Github } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 // Import all project images - trying with a working image for testing
 import tablaPic from "../assets/TablaMa.png"
@@ -7,9 +8,12 @@ import innunikPic from "../assets/INNUNIK.jpg"
 import itmaPic from "../assets/ITMA.jpg"
 
 export default function Projects() {
+  const navigate = useNavigate()
   
   const projects = [
     {
+      id: "1",
+      slug: "tabla-ma",
       title: "Tabla.ma | Restaurant Booking & Management Platform",
       description:
         "Tabla.ma is a comprehensive full-stack web application designed to simplify restaurant reservations and table management. It features an intuitive user interface, real-time availability tracking, and an efficient admin dashboard for managing bookings, reviews, and restaurant profiles.",
@@ -30,6 +34,8 @@ export default function Projects() {
       githubUrl: "#",
     },
     {
+      id: "2",
+      slug: "its-my-agency",
       title: "IT'S MY AGENCY | Creative Portfolio Website",
       description:
         "IT'S MY AGENCY is a modern, visually engaging website concept designed for a creative digital agency. The project showcases bold typography, fluid layouts, and a seamless user experience aimed at highlighting agency services, past work, and team culture.",
@@ -40,6 +46,8 @@ export default function Projects() {
       githubUrl: "#",
     },
     {
+      id: "3",
+      slug: "uranus-study",
       title: "Uranus Study | Educational Web Application",
       description:
         "Uranus Study is a sleek and minimalist educational platform designed to help students study efficiently through structured lessons, interactive content, and progress tracking. The UI emphasizes clarity and focus, with a clean layout, calm color palette, and intuitive navigation.",
@@ -50,6 +58,8 @@ export default function Projects() {
       githubUrl: "https://www.behance.net/gallery/152158131/Uranus-Study-WebApp",
     },
     {
+      id: "4",
+      slug: "innunik-branding",
       title: "INNUNIK | Branding",
       description:
         "INNUNIK is a branding project that focuses on creating a unique visual identity for a fictional company. The design includes a modern logo, color palette, typography, animating, advertizing videos and brand guidelines that reflect the company's values and mission.",
@@ -60,6 +70,10 @@ export default function Projects() {
       githubUrl: "#",
     },
   ]
+
+  const handleProjectClick = (slug: string) => {
+    navigate(`/project/${slug}`)
+  }
 
   return (
     <section id="projects" className="py-20 px-4 bg-transparent">
@@ -73,7 +87,8 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-slate-800/30 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden hover:bg-slate-700/50 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 fade-in group"
+              className="bg-slate-800/30 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden hover:bg-slate-700/50 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 fade-in group cursor-pointer"
+              onClick={() => handleProjectClick(project.slug)}
             >
               {/* Image Container */}
               <div className="relative overflow-hidden">
@@ -84,6 +99,14 @@ export default function Projects() {
                   onLoad={() => console.log('Project image loaded successfully')}
                   onError={() => console.log('Project image failed to load')}
                 />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-transparent group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-6 py-3 text-white font-medium">
+                      View Case Study
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Content */}
@@ -104,10 +127,21 @@ export default function Projects() {
                 </div>
 
                 {/* Links */}
-                <div className="flex space-x-4">
+                <div className="flex flex-wrap gap-4">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      handleProjectClick(project.slug)
+                    }}
+                    className="text-cyan-400 hover:text-cyan-300 font-medium text-sm flex items-center transition-colors"
+                  >
+                    View Details <ExternalLink className="w-4 h-4 ml-1" />
+                  </button>
+                  
                   {project.type === "dev" && (
                     <a
                       href={project.liveUrl}
+                      onClick={(e) => e.stopPropagation()}
                       className="text-cyan-400 hover:text-cyan-300 font-medium text-sm flex items-center transition-colors"
                     >
                       Live Demo <ExternalLink className="w-4 h-4 ml-1" />
@@ -116,6 +150,7 @@ export default function Projects() {
                   {project.type === "dev" && (
                     <a
                       href={project.githubUrl}
+                      onClick={(e) => e.stopPropagation()}
                       className="text-slate-400 hover:text-slate-300 font-medium text-sm flex items-center transition-colors"
                     >
                       Source Code <Github className="w-4 h-4 ml-1" />
@@ -124,6 +159,7 @@ export default function Projects() {
                   {project.type === "design" && (
                     <a
                       href={project.githubUrl}
+                      onClick={(e) => e.stopPropagation()}
                       className="text-slate-400 hover:text-slate-300 font-medium text-sm flex items-center transition-colors"
                     >
                       Behance Post <ExternalLink className="w-4 h-4 ml-1" />

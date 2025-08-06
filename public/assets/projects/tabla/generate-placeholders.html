@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery Image Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .canvas-container { margin: 20px 0; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Project Gallery Placeholder Generator</h1>
+    <p>This tool generates placeholder images for your project gallery.</p>
+    
+    <div class="canvas-container">
+        <h3>Tabla.ma Project Images</h3>
+        <canvas id="managerDashboard" width="800" height="600"></canvas>
+        <canvas id="managerFloorPlan" width="800" height="600"></canvas>
+        <canvas id="managerReservations" width="800" height="600"></canvas>
+        <canvas id="marketplaceHero" width="800" height="600"></canvas>
+        <canvas id="marketplaceProfile" width="800" height="600"></canvas>
+    </div>
+    
+    <button onclick="generateImages()">Generate All Images</button>
+    <button onclick="downloadAll()">Download All Images</button>
+    
+    <script>
+        const imageConfigs = {
+            'managerDashboard': {
+                title: 'Manager Dashboard',
+                subtitle: 'Restaurant Management Interface',
+                gradient: ['#0891b2', '#1e40af'],
+                icon: '📊'
+            },
+            'managerFloorPlan': {
+                title: 'Floor Plan Manager',
+                subtitle: 'Interactive Table Layout',
+                gradient: ['#7c3aed', '#1e40af'],
+                icon: '🏢'
+            },
+            'managerReservations': {
+                title: 'Reservations Panel',
+                subtitle: 'Booking Management System',
+                gradient: ['#059669', '#0891b2'],
+                icon: '📅'
+            },
+            'marketplaceHero': {
+                title: 'Marketplace Hero',
+                subtitle: 'Customer-Facing Homepage',
+                gradient: ['#dc2626', '#7c3aed'],
+                icon: '🎯'
+            },
+            'marketplaceProfile': {
+                title: 'Restaurant Profile',
+                subtitle: 'Public Restaurant Page',
+                gradient: ['#ea580c', '#dc2626'],
+                icon: '🍽️'
+            }
+        };
+        
+        function generateImage(canvasId, config) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, config.gradient[0]);
+            gradient.addColorStop(1, config.gradient[1]);
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add overlay pattern
+            ctx.globalAlpha = 0.1;
+            for (let i = 0; i < canvas.width; i += 50) {
+                for (let j = 0; j < canvas.height; j += 50) {
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(i, j, 2, 2);
+                }
+            }
+            ctx.globalAlpha = 1;
+            
+            // Add text content
+            ctx.textAlign = 'center';
+            
+            // Icon
+            ctx.font = '80px Arial';
+            ctx.fillStyle = 'white';
+            ctx.fillText(config.icon, canvas.width / 2, canvas.height / 2 - 80);
+            
+            // Title
+            ctx.font = 'bold 48px Arial';
+            ctx.fillStyle = 'white';
+            ctx.fillText(config.title, canvas.width / 2, canvas.height / 2);
+            
+            // Subtitle
+            ctx.font = '24px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fillText(config.subtitle, canvas.width / 2, canvas.height / 2 + 40);
+            
+            // Project name
+            ctx.font = '18px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+            ctx.fillText('Tabla.ma - Restaurant Platform', canvas.width / 2, canvas.height / 2 + 100);
+        }
+        
+        function generateImages() {
+            Object.keys(imageConfigs).forEach(id => {
+                generateImage(id, imageConfigs[id]);
+            });
+        }
+        
+        function downloadImage(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = canvasId + '.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        function downloadAll() {
+            Object.keys(imageConfigs).forEach(id => {
+                setTimeout(() => downloadImage(id), 100 * Object.keys(imageConfigs).indexOf(id));
+            });
+        }
+        
+        // Generate images on page load
+        window.onload = generateImages;
+    </script>
+</body>
+</html>
